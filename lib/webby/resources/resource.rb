@@ -1,10 +1,18 @@
+unless defined? Webby::Resources::Resource
+
 module Webby::Resources
 
 # A Webby::Resource is any file that can be found in the content directory
 # or in the layout directory. This class contains information about the
 # resources available to Webby.
 #
-class Resource < ::BasicObject
+class Resource
+
+  instance_methods.each do |m|
+      undef_method(m) unless m =~ %r/\A__|\?$/ ||
+                             m == 'class'
+  end
+
   # The full path to the resource file
   attr_reader :path
 
@@ -187,4 +195,7 @@ class Resource < ::BasicObject
 
 end  # class Resource
 end  # module Webby::Resources
+
+end  # unless defined?
+
 # EOF
