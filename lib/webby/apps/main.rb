@@ -183,7 +183,7 @@ class Main
   end
 
   def require_lib_files
-    Dir.glob(::File.join(%w[lib ** *.rb])).sort.each {|fn| require fn}
+    Dir.glob(::File.join(%w[lib ** *.rb])).sort.each {|fn| require File.expand_path(fn) }
   end
 
   def capture_command_line_args(args)
