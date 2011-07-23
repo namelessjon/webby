@@ -9,7 +9,7 @@ describe Hash do
       :one  => 1,
       :two  => 2,
       3     => 'three',
-      [3,4] => :thirty_four
+      34 => :thirty_four
     }.stringify_keys
     h.keys.sort.should == %w[3 34 one two]
   end

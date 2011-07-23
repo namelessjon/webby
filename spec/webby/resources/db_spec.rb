@@ -203,7 +203,7 @@ describe Webby::Resources::DB do
     it 'can search is a specific directory' do
       pages = @db.find('all', :in_directory => 'tumblog')
       pages.map! {|p| p.path}
-      pages.should == %w[
+      pages.should =~ %w[
         content/tumblog/index.txt
         content/tumblog/rss.txt
       ]
@@ -212,7 +212,7 @@ describe Webby::Resources::DB do
     it 'can recurse into directories' do
       pages = @db.find('all', :in_directory => 'tumblog/200807', :recursive => true)
       pages.map! {|p| p.title}
-      pages.should == [
+      pages.should =~ [
         'The Wisdom of the Dutch',
         'Mad City Chickens',
         'Historical Perspectives on the Classic Chicken Joke',
