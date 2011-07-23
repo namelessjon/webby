@@ -140,7 +140,6 @@ end  # module Webby
 # before the library is loaded.
 #
 def try_require( lib, gemname = nil )
-  gem gemname unless gemname.nil?
   require lib
   true
 rescue LoadError
