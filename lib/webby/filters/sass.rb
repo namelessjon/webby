@@ -1,6 +1,5 @@
-
 # Render text via the Sass library (part of Haml)
-if try_require('sass', 'haml')
+if try_require('sass')
 
   Loquacious.configuration_for(:webby) {
     desc <<-__
